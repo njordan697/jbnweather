@@ -1,3 +1,5 @@
-<p>
-  bulletin-nathan works!
-</p>
+<h2>Mes Bulletins</h2>
+      <ul class="list-group">
+        <app-bulletin *ngFor="let bulletin of bulletins" [bulletinId]="bulletin._id" [bulletinTempc]="bulletin.current_observation.temp_c"></app-bulletin>
+
+      </ul>

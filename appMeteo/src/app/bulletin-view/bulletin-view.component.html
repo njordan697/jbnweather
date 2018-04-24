@@ -1,5 +1,11 @@
+<agm-map [latitude]="lat" [longitude]="lng"><agm-marker [latitude]="lat" [longitude]="lng"> <agm-info-window>Estavayer-le-lac</agm-info-window></agm-marker></agm-map>
+
+
 <h2>Mes Bulletins</h2>
       <ul class="list-group">
-        <app-bulletin *ngFor="let bulletin of bulletins" [bulletinId]="bulletin._id" [bulletinTempc]="bulletin.current_observation.temp_c"></app-bulletin>
+        <!--<app-bulletin *ngFor="let bulletin of bulletins" [bulletinId]="bulletin._id" [bulletinTempc]="bulletin.current_observation.temp_c"></app-bulletin>-->
 
       </ul>
+
+      <app-bulletin></app-bulletin>
+

@@ -12,6 +12,10 @@ export class BulletinViewComponent implements OnInit {
   bulletins: any[];
   bulletinsSubscription: Subscription;
 
+
+  lat: number = 46.84999847;
+  lng: number = 6.84999990;
+
   constructor(private bulletinService: BulletinService) { }
 
   ngOnInit() {
