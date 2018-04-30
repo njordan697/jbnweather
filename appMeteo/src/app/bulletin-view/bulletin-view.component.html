@@ -1,3 +1,6 @@
+<script src="node_modules/chart.js/Chart.min.js"></script>
+<script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
+
 <agm-map [latitude]="lat" [longitude]="lng"><agm-marker [latitude]="lat" [longitude]="lng"> <agm-info-window>Estavayer-le-lac</agm-info-window></agm-marker></agm-map>
 
 
@@ -6,6 +9,38 @@
         <!--<app-bulletin *ngFor="let bulletin of bulletins" [bulletinId]="bulletin._id" [bulletinTempc]="bulletin.current_observation.temp_c"></app-bulletin>-->
 
       </ul>
+      <a>Jour le plus chaud : </a>
+      {{ stats[0].jourLePlusChaud }}
+      <br>
+<a>Température la plus chaude :</a>
+{{ stats[0].temperatureLaPlusChaude }}
+<br>
+<a>Jour le plus froid :</a>
+{{ stats[0].jourLePlusFroid }}
+<br>
+<a>Température la plus froide :</a>
+{{ stats[0].temperatureLaPlusFroide }}
+     <!-- <app-bulletin></app-bulletin> -->
 
-      <app-bulletin></app-bulletin>
 
+     <br><br><br><br>
+
+{{ nb }}
+
+
+
+
+<div *ngIf="isDataOk" style="display: block">
+  <canvas baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+</div>
+
+
+
+
+
+   

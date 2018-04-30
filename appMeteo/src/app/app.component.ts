@@ -13,6 +13,9 @@ export class AppComponent implements OnInit {
   secondes: number;
 //bulletins: any[];
 
+
+
+
 constructor(private bulletinService: BulletinService){
 	
 	

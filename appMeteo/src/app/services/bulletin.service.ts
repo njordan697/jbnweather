@@ -9,8 +9,14 @@ export class BulletinService {
 
   bulletinsSubject = new Subject<any[]>();
 
+  statsSubject = new Subject<any[]>();
+
   emitAppareilSubject() {
     this.bulletinsSubject.next(this.bulletins.slice());
+  }
+
+  emitStatsSubject(){
+    this.statsSubject.next(this.stats.slice());
   }
 //private bulletins: any[];
 
@@ -23,6 +29,14 @@ export class BulletinService {
 
   ];
 
+  private stats = [
+    {
+  
+      _id: "5ad8462c40741c0634b8b8bb"
+  
+    }
+  
+    ];
  
 
 
@@ -42,6 +56,22 @@ export class BulletinService {
           console.log('Erreur ! : ' + error);
         }
       );
+};
+
+getStats() {
+  this.httpClient
+    .get<any[]>('http://localhost:3000/api/statistiques')
+    .subscribe(
+      (response) => {
+        this.stats = response;
+        
+        this.emitStatsSubject();
+        
+      },
+      (error) => {
+        console.log('Erreur ! : ' + error);
+      }
+    );
 };
 
 

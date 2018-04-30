@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BulletinNathanComponent } from './bulletin-nathan/bulletin-nathan.component';
 import { BulletinJonathanComponent } from './bulletin-jonathan/bulletin-jonathan.component';
-
+import { ChartsModule } from 'ng2-charts'
 
 const appRoutes: Routes = [
   { path: 'bulletins', component: BulletinViewComponent },
@@ -35,6 +35,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    ChartsModule,
     RouterModule.forRoot(appRoutes),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyACc1LK8OszohA3RkypX7UjSWs0KmJ6-Cw'
