@@ -17,6 +17,7 @@ import { ForecastComponent } from './forecast/forecast.component';
 import { StatistiquesComponent } from './statistiques/statistiques.component';
 import { StatistiquesService } from './services/statistiques.service';
 import { StatistiquesViewComponent } from './statistiques-view/statistiques-view.component';
+import { AuthService } from './services/auth.service';
 
 const appRoutes: Routes = [
   { path: 'bulletins', component: BulletinViewComponent },
