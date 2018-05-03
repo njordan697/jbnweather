@@ -27,10 +27,11 @@
 
 {{ nb }}
 
+{{ forecast[0].forecast.simpleforecast.forecastday[0].high.celsius }}
 
+{{ pieChartData.length }}
 
-
-<div *ngIf="isDataOk" style="display: block">
+<div *ngIf="pieChartData.length > 0" style="display: block">
   <canvas baseChart
           [data]="pieChartData"
           [labels]="pieChartLabels"
@@ -41,6 +42,23 @@
 
 
 
+
+<div class="row">
+  <div class="col-md-6">
+    <div style="display: block;">
+    <canvas *ngIf="lineChartData.length > 0" baseChart width="400" height="400"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+  
+</div>
 
 
    

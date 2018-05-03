@@ -1,0 +1,33 @@
+
+
+<app-statistiques [jourLePlusChaud]="stats[0].jourLePlusChaud" [jourLePlusFroid]="stats[0].jourLePlusFroid" [temperatureLaPlusChaude]="stats[0].temperatureLaPlusChaude" [temperatureLaPlusFroide]="stats[0].temperatureLaPlusFroide"></app-statistiques>
+
+<agm-map [latitude]="lat" [longitude]="lng"><agm-marker [latitude]="lat" [longitude]="lng"> <agm-info-window>Estavayer-le-lac</agm-info-window></agm-marker></agm-map>
+
+<div *ngIf="pieChartData.length > 0" style="display: block;width: 600px">
+  <canvas baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-md-6">
+    <div style="display: block;width: 600px">
+    <canvas *ngIf="lineChartData.length > 0" baseChart
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+  
+</div>

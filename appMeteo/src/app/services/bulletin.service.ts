@@ -11,12 +11,20 @@ export class BulletinService {
 
   statsSubject = new Subject<any[]>();
 
+
+  forecastSubject = new Subject<any[]>();
+
+
   emitAppareilSubject() {
     this.bulletinsSubject.next(this.bulletins.slice());
   }
 
   emitStatsSubject(){
     this.statsSubject.next(this.stats.slice());
+  }
+
+  emitForecastSubject(){
+    this.forecastSubject.next(this.forecast.slice());
   }
 //private bulletins: any[];
 
@@ -38,6 +46,14 @@ export class BulletinService {
   
     ];
  
+    private forecast = [
+      {
+    
+        _id: "5ad8462c40741c0634b8b8bb"
+    
+      }
+    
+      ];
 
 
   constructor(private httpClient: HttpClient) { }
@@ -64,8 +80,24 @@ getStats() {
     .subscribe(
       (response) => {
         this.stats = response;
-        
+        console.log(this.stats);
         this.emitStatsSubject();
+        
+      },
+      (error) => {
+        console.log('Erreur ! : ' + error);
+      }
+    );
+};
+
+getForecast() {
+  this.httpClient
+    .get<any[]>('http://localhost:3000/api/prevision')
+    .subscribe(
+      (response) => {
+        this.forecast = response;
+        
+        this.emitForecastSubject();
         
       },
       (error) => {

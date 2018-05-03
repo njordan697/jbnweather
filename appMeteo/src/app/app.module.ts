@@ -12,7 +12,11 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BulletinNathanComponent } from './bulletin-nathan/bulletin-nathan.component';
 import { BulletinJonathanComponent } from './bulletin-jonathan/bulletin-jonathan.component';
-import { ChartsModule } from 'ng2-charts'
+import { ChartsModule } from 'ng2-charts';
+import { ForecastComponent } from './forecast/forecast.component';
+import { StatistiquesComponent } from './statistiques/statistiques.component';
+import { StatistiquesService } from './services/statistiques.service';
+import { StatistiquesViewComponent } from './statistiques-view/statistiques-view.component';
 
 const appRoutes: Routes = [
   { path: 'bulletins', component: BulletinViewComponent },
@@ -30,7 +34,10 @@ const appRoutes: Routes = [
     AuthComponent,
     BulletinViewComponent,
     BulletinNathanComponent,
-    BulletinJonathanComponent
+    BulletinJonathanComponent,
+    ForecastComponent,
+    StatistiquesComponent,
+    StatistiquesViewComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +49,8 @@ const appRoutes: Routes = [
     })
   ],
   providers: [
-  BulletinService
+  BulletinService,
+  StatistiquesService
   ],
   bootstrap: [AppComponent]
 })

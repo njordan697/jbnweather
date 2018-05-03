@@ -3,6 +3,7 @@ import { BulletinService } from "./services/bulletin.service";
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
